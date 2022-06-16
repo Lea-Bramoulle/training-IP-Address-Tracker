@@ -1,0 +1,42 @@
+@use 'src/styles/reset';
+@use 'src/styles/vars';
+
+.header {
+  background-image: url('./../../assets/images/pattern-bg.png');
+  background-size: cover ;
+  background-repeat: no-repeat;
+  padding:4rem 0 8rem 0;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  
+
+  &--title {
+    font-size: 3rem;
+    color:white;
+  }
+
+}
+
+.form {
+  margin-top:2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--input {
+    width:30%;
+    padding:1.5rem 2rem;
+    background-color: #fff;
+    border:none;
+    border-radius: 10px 0 0 10px;
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+  }
+
+  &--button {
+    padding:1.5rem 2.5rem;
+    background-color: black;
+    border: none;
+    border-radius: 0 10px 10px 0;
+  }
+
+}
