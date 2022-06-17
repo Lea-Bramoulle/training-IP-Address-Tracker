@@ -7,7 +7,7 @@ function Header({ ipAddress, onFormSubmit, onInputValueChange }) {
   return (
     <header className="header">
       <h1 className="header--title">IP AddressTracker {ipAddress}</h1>
-      <form className="form" onSubmit={onFormSubmit}>
+      <form className="form" method="POST" onSubmit={onFormSubmit}>
         <input
           type="text"
           name="search"
