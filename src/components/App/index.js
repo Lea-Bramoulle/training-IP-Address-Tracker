@@ -2,13 +2,15 @@
 import './styles.scss';
 
 import { useEffect, useState } from 'react';
-import env from 'react-dotenv';
 import axios from 'axios';
 
 import Map from '../Map';
 import Header from '../Header';
 import Main from '../Main';
 import ipData from '../../data/ip';
+
+import React from "react";
+import env from "react-dotenv";
 
 // == Composant
 function App() {
@@ -28,7 +30,7 @@ function App() {
     try {
       setInputValue('');
       console.log(ipAddress);
-      const ipAddressData = await axios.get(`https://geo.ipify.org/api/v2/country?apiKey=${API_KEY}&ipAddress=${ipAddress}`);
+      const ipAddressData = await axios.get(`https://geo.ipify.org/api/v2/country?apiKey=${process.env.REACT_APP_GEO_IPIFY_API_KEY}&ipAddress=${ipAddress}`);
       
       console.log(ipAddressData.data);
       
