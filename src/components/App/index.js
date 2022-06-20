@@ -22,22 +22,6 @@ function App() {
     });
   };
 
-  const loadApiData = async function () {
-    try {
-      setInputValue('');
-      console.log(ipAddress);
-      const ipAddressData = await axios.get(`https://geo.ipify.org/api/v2/country?apiKey=${process.env.REACT_APP_GEO_IPIFY_API_KEY}&ipAddress=${ipAddress}`);
-
-      console.log(ipAddressData.data);
-
-      setIpAddressInformations(ipAddressData.data);
-      geoCoder();
-    }
-    catch (error) {
-      console.error(error);
-    }
-  };
-
   const geoCoder = async function () {
     const ipData = await axios.get(`https://geo.ipify.org/api/v2/country?apiKey=${process.env.REACT_APP_GEO_IPIFY_API_KEY}&ipAddress=${ipAddress}`);
 
@@ -50,12 +34,27 @@ function App() {
       const newTab = [];
       newTab.push(results[0].y, results[0].x);
       setGeoCode(newTab);
-      console.log(geoCode);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const loadApiData = async function () {
+    try {
+      setInputValue('');
+      const ipAddressData = await axios.get(`https://geo.ipify.org/api/v2/country?apiKey=${process.env.REACT_APP_GEO_IPIFY_API_KEY}&ipAddress=${ipAddress}`);
+
+      console.log(ipAddressData.data);
+
+      setIpAddressInformations(ipAddressData.data);
+      geoCoder();
     }
     catch (error) {
       console.error(error);
     }
   };
+
+
 
   const handleFormInputChange = (event) => {
     setInputValue(event.target.value);
@@ -68,7 +67,6 @@ function App() {
       setIpAddress(inputValue);
       setInputValue('');
       const ipAddressData = await axios.get(`https://geo.ipify.org/api/v2/country?apiKey=${process.env.REACT_APP_GEO_IPIFY_API_KEY}&ipAddress=${ipAddress}`);
-      console.log(ipAddressData.data);
 
       setIpAddressInformations(ipAddressData.data);
       console.log(ipAddressInformations);
