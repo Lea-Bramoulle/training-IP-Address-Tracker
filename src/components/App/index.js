@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-console */
 // == Import
 import './styles.scss';
@@ -64,7 +65,6 @@ function App() {
     event.preventDefault();
 
     setIpAddress(inputValue);
-    setInputValue('');
 
     fetchIpDataFromApi(inputValue);
   };
